@@ -1,3 +1,4 @@
+using ASP_NET_MIDDLEWARE.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_NET_MIDDLEWARE.Controllers
@@ -19,15 +20,19 @@ namespace ASP_NET_MIDDLEWARE.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult ThrowException()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            
+            throw new ApiException("¡Esto es una excepción!");
+            //var res = new Exception();
+            //return res;
+            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            //{
+            //    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            //    TemperatureC = Random.Shared.Next(-20, 55),
+            //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            //})
+            //.ToArray();
         }
     }
 }
