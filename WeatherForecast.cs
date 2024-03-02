@@ -8,7 +8,7 @@ namespace ASP_NET_MIDDLEWARE
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
-        public string? Summar { get; set; }
+        public string? SummarPrueba2 { get; set; }
 
     }
 }
