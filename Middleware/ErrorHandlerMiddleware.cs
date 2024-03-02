@@ -25,6 +25,7 @@ namespace ASP_NET_MIDDLEWARE.Middleware
                 var response = context.Response;
                 response.ContentType = "application/json";
                 //var responseModel = new Response <string>() {Succeded=false, Message= ex };
+                //Son errores personalizados
                 switch (ex)
                 {
                     case Exceptions.ApiException e:
