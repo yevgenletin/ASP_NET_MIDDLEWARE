@@ -1,4 +1,8 @@
-﻿namespace ASP_NET_MIDDLEWARE.Middleware
+﻿
+using System.Net;
+using System.Text.Json;
+
+namespace ASP_NET_MIDDLEWARE.Middleware
 {
     public class ErrorHandlerMiddleware
     {
@@ -18,11 +22,29 @@
             }
             catch (Exception ex)
             {
+                var response = context.Response;
+                response.ContentType = "application/json";
+                //var responseModel = new Response <string>() {Succeded=false, Message= ex };
                 switch (ex)
                 {
-                    
+                    case Exceptions.ApiException e:
+                        //custom exception
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+                    //case Exceptions.ValidationException e:
+                    //response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    //    break;
+                    case KeyNotFoundException e:
+                        //not found error
+                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                        break;
+                    default:
+                        //unhandled error
+                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        break;
                 }
-                throw;
+                var result = JsonSerializer.Serialize("ejemplo");
+                await response.WriteAsync(result);
             }
         }
     }
