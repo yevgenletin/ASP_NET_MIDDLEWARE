@@ -10,5 +10,7 @@ namespace ASP_NET_MIDDLEWARE
 
         public string? SummarPrueba2 { get; set; }
 
+        public string? Summar { get; set; }
+
     }
 }
