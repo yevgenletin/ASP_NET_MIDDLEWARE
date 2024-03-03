@@ -2,5 +2,6 @@
 {
     public class NuevaClase
     {
+        public sub NuevaFuncion(){}
     }
 }
