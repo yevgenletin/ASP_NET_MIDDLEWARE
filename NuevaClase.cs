@@ -2,6 +2,6 @@
 {
     public class NuevaClase
     {
-        public sub NuevaFuncion(){}
+        public void NuevaFuncion() { }
     }
 }
