@@ -11,6 +11,9 @@ namespace ASP_NET_MIDDLEWARE
         public string? SummarPrueba2 { get; set; }
 
         public string? Summar { get; set; }
+        //Hemos añadido otro campo nuevo
+        public string? SummarTT { get; set; }
+
 
     }
 }
