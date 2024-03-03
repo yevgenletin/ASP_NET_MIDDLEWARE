@@ -2,6 +2,6 @@
 {
     public class FicheroAgregado
     {
-        public FicheroAgregado() { }
+        public FicheroAgregado(int arg1) { }
     }
 }
